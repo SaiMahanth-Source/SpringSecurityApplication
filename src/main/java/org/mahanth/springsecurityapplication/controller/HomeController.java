@@ -11,12 +11,12 @@ public class HomeController {
 
     /*
     http://localhost:8080/login?logout for logout form and also spring maintains the session as well
-    httpServletRequest.getSession().getId() to get the session Id generated
+    httpServletRequest.getSession().getId() to get the session I'd generated
      */
     @GetMapping("/")
     public ResponseEntity<String> greet(HttpServletRequest httpServletRequest){
 
-        return new ResponseEntity<>("Welcome to the home page ", HttpStatus.OK);
-//        return new ResponseEntity<>("Welcome to the home page " + httpServletRequest.getSession().getId(), HttpStatus.OK);
+//        return new ResponseEntity<>("Welcome to the home page ", HttpStatus.OK);
+        return new ResponseEntity<>("Welcome to the home page " + httpServletRequest.getSession().getId(), HttpStatus.OK);
     }
 }
