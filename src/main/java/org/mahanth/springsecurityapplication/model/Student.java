@@ -1,4 +1,4 @@
-package org.mahanth.springsecurityapplication.controller.model;
+package org.mahanth.springsecurityapplication.model;
 
 public class Student {
 

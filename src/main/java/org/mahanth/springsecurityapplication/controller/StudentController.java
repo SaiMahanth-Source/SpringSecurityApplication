@@ -1,7 +1,7 @@
 package org.mahanth.springsecurityapplication.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
-import org.mahanth.springsecurityapplication.controller.model.Student;
+import org.mahanth.springsecurityapplication.model.Student;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.web.csrf.CsrfToken;
