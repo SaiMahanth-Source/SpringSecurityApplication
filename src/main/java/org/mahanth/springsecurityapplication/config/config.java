@@ -6,6 +6,10 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -40,4 +44,22 @@ public class config {
                         sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .build(); // Here we are using builder pattern because return type is HttpSecurity for the methods
     }
+
+//    @Bean
+//    public UserDetailsService userDetailsService() {
+//
+//        UserDetails userDetails1 = User.withDefaultPasswordEncoder()
+//                .username("maneesha")
+//                .password("124091@Maneesha")
+//                .roles("USER")
+//                .build();
+//
+//        UserDetails userDetails2 = User.withDefaultPasswordEncoder()
+//                .username("alpha")
+//                .password("124091@alpha")
+//                .roles("ADMIN")
+//                .build();
+//
+//        return new InMemoryUserDetailsManager(userDetails1, userDetails2);
+//    }
 }
