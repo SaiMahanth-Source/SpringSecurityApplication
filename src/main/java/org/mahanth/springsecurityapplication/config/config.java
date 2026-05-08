@@ -12,6 +12,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
@@ -74,8 +75,18 @@ public class config {
     public AuthenticationProvider authenticationProvider() {
 
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider(userDetailsService);
-        daoAuthenticationProvider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
+//        daoAuthenticationProvider.setPasswordEncoder(NoOpPasswordEncoder.getInstance()); // Default no password encrypter
+        daoAuthenticationProvider.setPasswordEncoder(new BCryptPasswordEncoder(11));
+        /*
+        To verify the password after bcrypting using bcrypt encoder from the database
+         */
 
         return daoAuthenticationProvider;
+    }
+
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+
+        return new BCryptPasswordEncoder(11);
     }
 }
